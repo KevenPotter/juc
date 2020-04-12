@@ -33,6 +33,43 @@ public class SaleTicketDemo01 {
      * 1.1 一言不合,先创建一个资源类
      */
     public static void main(String[] args) {
+        Ticket ticket = new Ticket();
+        new Thread(() -> {
+            for (int i = 0; i <= 40; i++) ticket.sale();
+        }, "A").start();
+        new Thread(() -> {
+            for (int i = 0; i <= 40; i++) ticket.sale();
+        }, "B").start();
+        new Thread(() -> {
+            for (int i = 0; i <= 40; i++) ticket.sale();
+        }, "C").start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                // 线程.start()不会立马启动线程
+//                for (int i = 1; i < 40; i++) {
+//                    ticket.sale();
+//                }
+//            }
+//        }, "A").start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                // 线程.start()不会立马启动线程
+//                for (int i = 1; i < 40; i++) {
+//                    ticket.sale();
+//                }
+//            }
+//        }, "B").start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                // 线程.start()不会立马启动线程
+//                for (int i = 1; i < 40; i++) {
+//                    ticket.sale();
+//                }
+//            }
+//        }, "C").start();
 
     }
 }
